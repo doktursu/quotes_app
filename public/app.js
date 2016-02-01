@@ -3,6 +3,15 @@ var Quote = function(quote, author){
   this.author = author;
 };
 
+Quote.prototype = {
+  toArticleInnerHTML: function(){
+    return '<blockquote>' + this.quote + ' <cite>' + this.author + '</cite></blockquote>';
+  },
+  toBlockquoteInnerHTML: function(){
+    return this.quote + ' <cite>' + this.author + '</cite>'
+  }
+};
+
 var q1 = new Quote("Visual Basic is the way forward, I don't know why we are doing Javascript.", "Jay Chetty");
 var q2 = new Quote("The only CSS you need to know is background-color: tomato.", "Rick");
 var q3 = new Quote("No Blockers *smug tone*", "Keith");
@@ -10,6 +19,15 @@ var q4 = new Quote("Scaffold is nothing but a fiery hell.", "Valerie");
 var q5 = new Quote("That is quite obviously a frog.", "Jay Chetty");
 
 var quotes = [q1, q2, q3, q4, q5];
+
+var quoteOfTheDay = function(){
+  return quotes[Math.floor(Math.random() * quotes.length)];
+};
+
+var setQuoteOfTheDay = function(quote){
+  var blockquote = document.getElementById('quote-of-the-day');
+  blockquote.innerHTML = quote.toBlockquoteInnerHTML();
+};
 
 var loadQuotes = function(){
   for (var i = 0; i < quotes.length; i++) {
@@ -36,7 +54,9 @@ var addQuote = function(quote){
   var remove = document.createElement('button');
   remove.id = 'quote-delete';
   remove.innerText = 'Delete Quote';
+  remove.display = 'inline-block'
   remove.onclick = deleteQuote;
+
 
   article.appendChild(remove);
 
@@ -46,21 +66,46 @@ var addQuote = function(quote){
 var deleteQuote = function(){
   var parent = this.parentNode;
   parent.parentNode.removeChild(parent);
-}
+};
 
+var handleBlur = function(){
+  var quoteInput = document.getElementById('quote-quote-input');
+  var authorInput = document.getElementById('quote-author-input');
 
-window.onload = function(){
-  loadQuotes();
+  console.log('blurrring');
+};
 
-  var handleClick = function(){
-    var quote = document.getElementById('quote-quote-input').value;
+var resetForm = function(){
+  var quoteInput = document.getElementById('quote-quote-input');
+  var authorInput = document.getElementById('quote-author-input');
+  quoteInput.value = '';
+  authorInput.value = '';
+  createPreview();
+};
+
+var handleClick = function(){
+  var quote = document.getElementById('quote-quote-input').value;
+  if (quote.trim()) {
     var author = document.getElementById('quote-author-input').value;
 
     console.log(quote, author);
 
     var newQuote = new Quote(quote, author);
     addQuote(newQuote);
+    resetForm();
   }
+};
+
+var createPreview = function(){
+  var quoteInput = document.getElementById('quote-quote-input');
+  var authorInput = document.getElementById('quote-author-input');
+  var preview = document.getElementById('quote-preview');
+  preview.innerHTML = '<blockquote>' + quoteInput.value + ' <cite>'+ authorInput.value + '</cite></blockquote>';
+};
+
+window.onload = function(){
+  loadQuotes();
+  setQuoteOfTheDay(quoteOfTheDay());
 
   var submitButton = document.getElementById('quote-button');
   submitButton.onclick = handleClick;
@@ -70,4 +115,8 @@ window.onload = function(){
     event.preventDefault();
     handleClick();
   }
+
+  var quoteInput = document.getElementById('quote-quote-input');
+  var authorInput = document.getElementById('quote-author-input');
+  form.onkeyup = createPreview;
 };

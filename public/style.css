@@ -2,3 +2,65 @@
   width: 50px;
   height: 50px;
 }
+
+.quote {
+  border: 2px solid #500;
+}
+
+/*
+  ========================================
+  Custome Styling
+  ========================================
+*/
+
+body {
+  background-color: tomato;
+  font-family: 'Biryani', sans-serif;
+  font-size: 16px;
+}
+
+/*
+  ========================================
+  Layout
+  ========================================
+*/
+
+/*
+  ========================================
+  Blockquote
+  ========================================
+*/
+
+blockquote {
+  color: tomato;
+  background-color: white;
+}
+
+/*
+  ========================================
+  Forms
+  ========================================
+*/
+
+input[type=text] {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2px;
+}
+
+input[type=button] {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2px;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
