@@ -3,20 +3,25 @@
   height: 50px;
 }
 
-.quote {
-  border: 2px solid #500;
-}
-
 /*
   ========================================
   Custome Styling
   ========================================
 */
 
+html {
+  padding: .2rem;
+}
+
 body {
   background-color: tomato;
   font-family: 'Biryani', sans-serif;
   font-size: 16px;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 0;
 }
 
 /*
@@ -25,15 +30,72 @@ body {
   ========================================
 */
 
+.wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
+/*
+  ========================================
+  Header
+  ========================================
+*/
+
+header {
+  background-color: red;
+}
+
 /*
   ========================================
   Blockquote
   ========================================
 */
 
+.quote {
+  min-height: 3rem;
+  background-color: white;
+  border-top: 1.5px solid wheat;
+  border-bottom: 1.5px solid wheat;
+  border-right: 3px solid wheat;
+  border-left: 3px solid wheat;
+  padding: 1rem 1rem .1rem 1rem;
+  vertical-align: text-bottom;
+}
+
 blockquote {
   color: tomato;
   background-color: white;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+cite {
+  color: #222;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 3px;
+  /* Hide the text. */
+      text-indent: 200%;
+      white-space: nowrap;
+      overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
+  background-color: white;
+  background-image: url('http://www.pomodoro-vietnam.com/images/tomato.png');
+  background-size: contain;
+  margin-left: .2rem;
+  vertical-align: text-top;
+}
+
+button:hover {
+  background-image: url('https://mjshorts.files.wordpress.com/2013/05/15491672-splattered-tomato-and-crushed-red-fruit-vegetable-thrown-to-a-wall-as-a-squashed-food-symbol-or-a-co.jpg');
 }
 
 /*
@@ -42,20 +104,34 @@ blockquote {
   ========================================
 */
 
-input[type=text] {
-  font-size: 1rem;
-  padding: 0.5rem;
+form {
+  margin-bottom: 1rem;
+}
+
+input[type=text],
+input[type=button] {
+  font-size: .9rem;
+  padding: 0 .6rem;
   border: none;
-  border-radius: 2px;
+  border-radius: 3px;
+  margin-bottom: .5rem;
+}
+
+input[type=text] {
+  color: #222;
+  width: 40%;
+  background-color: #eee;
 }
 
 input[type=button] {
-  font-size: 1rem;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 2px;
-  background-color: #eee;
+  background-color: red;
   cursor: pointer;
+  width: 14%;
+}
+
+input[type=button]:hover {
+  background-color: white;
+  color: red;
 }
 
 

@@ -4,26 +4,34 @@
   <title>Frontend JS</title>
   <script src='app.js'></script>
   <link href='https://fonts.googleapis.com/css?family=Biryani:400,300,900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="normalize.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-<body>
+<body class="wrapper">
   <header>
     <h1>
       <img class="logo" src="http://www.yellowjammarketing.com/wp-content/uploads/2015/01/Speech-Mark.png" />
       Toma'o'Quotes
     </h1>
-
   </header>
   <main>
+    <div id="links">
+      <a href="#" id="throw">Throw a Toma'o'!</a>
+    </div>
     <intro>
       <p id="tagline">Welcome to our super awesome quotes site full of super awesome quote goodness.</p>
-      <p>Here you will find lots of quotes about programming.</p>
+      <p>Here you will find lots of quotes about toma'o's.</p>
     </intro>
     <form id="quote-form">
-      <span id="quote-preview"></span>
-      <input type="text" id="quote-quote-input" size="40" placeholder="Quote">
-      <input type="text" id="quote-author-input" size="20" placeholder="Author">
+      <h2>Add a Quote</h2>
+      <input type="text" id="quote-quote-input" size="40" placeholder="Enter a quote...">
+      <input type="text" id="quote-author-input" size="16" placeholder="Enter an author...">
       <input type="button" id="quote-button" value="Add Quote">
+      <a href="#" id="focus">
+      <article class="quote quote-preview-article">
+        <span id="quote-preview"></span>
+      </article>
+      </a>
     </form>
     <section id="quotes">
       
@@ -37,12 +45,12 @@
             <cite>
               Jay Chetty
             </cite>
-        </blockquote>
+          </blockquote>
         </article>
       </aside>
       <aside>
         <h2>Sign up</h2>
-        <p>Get a cool programming quote delivered to your inbox every day.</p>
+        <p>Get a cool tomat'o' delivered to your inbox every day.</p>
         <form>
           <fieldset>
             <label>
